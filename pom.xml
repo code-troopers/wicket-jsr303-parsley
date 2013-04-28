@@ -8,6 +8,7 @@
     <version>0.1-SNAPSHOT</version>
     <name>wicket-jsr303-parsley</name>
     <description>Basic integration between Wicket, JSR303 and ParsleyJS client side validation library</description>
+    <packaging>jar</packaging>
 
     <licenses>
         <license>
