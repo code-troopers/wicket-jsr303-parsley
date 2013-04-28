@@ -20,7 +20,8 @@
 
     <scm>
         <url>https://github.com/code-troopers/wicket-jsr303-parsley</url>
-        <developerConnection>git@github.com:code-troopers/wicket-jsr303-parsley.git</developerConnection>
+        <connection>scm:git@github.com:code-troopers/wicket-jsr303-parsley.git</connection>
+        <developerConnection>scm:git@github.com:code-troopers/wicket-jsr303-parsley.git</developerConnection>
     </scm>
 
     <developers>
