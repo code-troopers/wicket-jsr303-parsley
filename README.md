@@ -1,5 +1,8 @@
 # Wicket JSR303 ParsleyJs integration
 
+Thanks to Cloudbees buildhive for providing a free Jenkins instance. [![Build
+Status](https://buildhive.cloudbees.com/job/code-troopers/job/wicket-jsr303-parsley/badge/icon)](https://buildhive.cloudbees.com/job/code-troopers/job/wicket-jsr303-parsley/)
+
 [Parsley.js](https://github.com/guillaumepotier/Parsley.js) is a client-side form validation library ([documentation](http://parsleyjs.org/documentation.html)).
 
 [Apache Wicket](http://wicket.apache.org) is a Java Web framework providing clean separation between markup and logic.
@@ -9,6 +12,8 @@
 This project provides a simple way to get client side validation for POJOs annotated with Bean Validation's contraints.
 
 # Setup on your project
+
+_Release to Maven central is coming, meanwhile a deploy on your local artifact repository is needed_
 
 Add the following Maven dependency
 
