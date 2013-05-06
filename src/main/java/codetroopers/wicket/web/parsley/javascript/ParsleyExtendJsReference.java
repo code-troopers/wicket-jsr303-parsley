@@ -1,5 +1,6 @@
 package codetroopers.wicket.web.parsley.javascript;
 
+import de.agilecoders.wicket.webjars.util.WebjarsVersion;
 import org.apache.wicket.markup.head.HeaderItem;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.markup.head.JavaScriptReferenceHeaderItem;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
  */
 public class ParsleyExtendJsReference extends JQueryPluginResourceReference {
     public ParsleyExtendJsReference() {
-        super(ParsleyExtendJsReference.class, "parsley.extend.min.js");
+        super(ParsleyExtendJsReference.class, WebjarsVersion.useRecent("parsleyjs/current/dist/parsley.extend.min.js"));
     }
 
     @Override

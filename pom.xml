@@ -55,6 +55,16 @@
                 <version>${hibernate-validator.version}</version>
             </dependency>
             <dependency>
+                <groupId>de.agilecoders.wicket.webjars</groupId>
+                <artifactId>wicket-webjars</artifactId>
+                <version>0.2.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.webjars</groupId>
+                <artifactId>parsleyjs</artifactId>
+                <version>${parsleyjs.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.eclipse.jetty.aggregate</groupId>
                 <artifactId>jetty-all-server</artifactId>
                 <version>${jetty.version}</version>
@@ -76,6 +86,14 @@
         <dependency>
             <groupId>org.apache.wicket</groupId>
             <artifactId>wicket-bean-validation</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>de.agilecoders.wicket.webjars</groupId>
+            <artifactId>wicket-webjars</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>parsleyjs</artifactId>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -147,6 +165,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <wicket.version>[6.0.0,]</wicket.version>
         <wicket-bean-validation.version>[0.8,]</wicket-bean-validation.version>
+        <parsleyjs.version>1.1.15</parsleyjs.version>
         <hibernate-validator.version>4.3.1.Final</hibernate-validator.version>
         <junit.version>4.11</junit.version>
         <jetty.version>8.1.10.v20130312</jetty.version>

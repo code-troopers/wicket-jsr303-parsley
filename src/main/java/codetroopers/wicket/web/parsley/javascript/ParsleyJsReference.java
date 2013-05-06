@@ -1,5 +1,8 @@
 package codetroopers.wicket.web.parsley.javascript;
 
+import de.agilecoders.wicket.webjars.request.resource.WebjarsJavaScriptResourceReference;
+import de.agilecoders.wicket.webjars.util.WebjarsVersion;
+import de.agilecoders.wicket.webjars.util.WicketWebjars;
 import org.apache.wicket.markup.head.HeaderItem;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.request.resource.JavaScriptResourceReference;
@@ -7,6 +10,9 @@ import org.apache.wicket.resource.JQueryPluginResourceReference;
 
 import java.util.ArrayList;
 import java.util.Locale;
+
+import static de.agilecoders.wicket.webjars.util.WebjarsVersion.*;
+import static de.agilecoders.wicket.webjars.util.WicketWebjars.*;
 
 /**
  * Base parsley javascript reference
@@ -18,7 +24,9 @@ public class ParsleyJsReference extends JQueryPluginResourceReference {
         this(null);
     }
     public ParsleyJsReference(final Locale locale) {
-        super(ParsleyJsReference.class, "parsley.min.js", locale, null, null);
+        super(WebjarsJavaScriptResourceReference.class, 
+                useRecent(prependWebjarsPathIfMissing("parsleyjs/current/dist/parsley.min.js")), 
+                locale, null, null);
     }
 
     @Override
@@ -39,7 +47,7 @@ public class ParsleyJsReference extends JQueryPluginResourceReference {
      * @return the resourceReference to use for i18nization in Parsley
      */
     protected JavaScriptResourceReference getI18nResourceReference() {
-        return new JavaScriptResourceReference(ParsleyJsReference.class,
-                "i18n/messages." + getLocale().getLanguage() + ".js");
+        return new WebjarsJavaScriptResourceReference("parsleyjs/current/i18n/messages." 
+                + getLocale().getLanguage() + ".js");
     }
 }
