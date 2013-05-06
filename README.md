@@ -13,8 +13,6 @@ This project provides a simple way to get client side validation for POJOs annot
 
 # Setup on your project
 
-_Release to Maven central is coming, meanwhile a deploy on your local artifact repository is needed_
-
 Add the following Maven dependency
 
     <dependency>
