@@ -9,7 +9,7 @@ Status](https://buildhive.cloudbees.com/job/code-troopers/job/wicket-jsr303-pars
 
 [JSR303 - Bean validation](http://beanvalidation.org/1.0/spec/) is a Java specification providing an easy way to define constraint on your model objects.
 
-This project provides a simple way to get client side validation for POJOs annotated with Bean Validation's contraints.
+This project provides a simple way to get client side validation for POJOs annotated with Bean Validation's constraints.
 
 # Setup on your project
 
@@ -18,7 +18,7 @@ Add the following Maven dependency
     <dependency>
         <groupId>com.code-troopers</groupId>
         <artifactId>wicket-jsr303-parsley</artifactId>
-        <version>0.1</version>
+        <version>0.2</version>
     </dependency>
 
 To use it in your Wicket application, you will need to register Parsley with your application.
@@ -38,6 +38,11 @@ For every form that you want to validate using Parsley, you will need to add Par
 Every FormComponent in the specified Form will get a correct validator (both client and server side).
 Please notice that you will need to use a model implementing IPropertyReflectionAwareModel in order for the tool to read annotation metadata.
 
+# JavaScript dependencies
+
+This library depends on Parsley.Js via the artifact deployed on [Webjars](https://github.com/webjars/parsleyjs). 
+This way you can easily use an updated version of the library in your project.
+
 # Bug tracker
 
 Have a bug? Please create an issue here on GitHub!
@@ -48,6 +53,8 @@ https://github.com/code-troopers/wicket-jsr303-parsley/issues
 # Special notes
 
 Many thanks to Martin Grigorov for the blog article which inspired me : http://wicketinaction.com/2013/04/server-and-client-side-validation/
+
+Thanks to James Ward for the Webjars.org initiative : http://www.jamesward.com/2012/10/31/webjars-officially-launched.
 
 The implementation provided here is open for pull request or further integration into WicketStuff.
 
