@@ -5,6 +5,7 @@ import org.hibernate.validator.constraints.Email;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 /**
@@ -27,6 +28,9 @@ public class TestBean {
 
     @Size(min = 3, max = 54)
     private String sizeAttr;
+
+    @Pattern(regexp = "[a-zA-Z]")
+    private String patternAttr;
 
     public String getAttr1() {
         return attr1;
@@ -66,5 +70,13 @@ public class TestBean {
 
     public void setSizeAttr(String sizeAttr) {
         this.sizeAttr = sizeAttr;
+    }
+
+    public String getPatternAttr() {
+        return patternAttr;
+    }
+
+    public void setPatternAttr(final String patternAttr) {
+        this.patternAttr = patternAttr;
     }
 }

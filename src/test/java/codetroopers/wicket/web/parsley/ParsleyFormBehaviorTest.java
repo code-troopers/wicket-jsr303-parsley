@@ -114,5 +114,20 @@ public class ParsleyFormBehaviorTest {
         Assert.assertEquals("54", tagTF3.getAttribute("data-maxlength"));
     }
 
+    @Test
+    public void testVisitPatternFormComponent(){
+        Parsley.register(wicketTester.getApplication());
+        wicketTester.startPage(new ResolvablePropertiesPage(){
+            @Override
+            protected IModel<Long> newTF3Model(TestBean testBean) {
+                return new PropertyModel(testBean, "patternAttr");
+            }
+        });
+        wicketTester.assertRenderedPage(ResolvablePropertiesPage.class);
+        final TagTester tagTF3 = wicketTester.getTagByWicketId("tf3");
+        Assert.assertTrue(tagTF3.hasAttribute("data-regexp"));
+        Assert.assertEquals("[a-zA-Z]", tagTF3.getAttribute("data-regexp"));
+    }
+
 
 }

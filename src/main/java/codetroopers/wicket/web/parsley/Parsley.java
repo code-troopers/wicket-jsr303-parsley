@@ -1,6 +1,11 @@
 package codetroopers.wicket.web.parsley;
 
-import codetroopers.wicket.web.parsley.tagmodifier.*;
+import codetroopers.wicket.web.parsley.tagmodifier.ParsleyEmailTagModifier;
+import codetroopers.wicket.web.parsley.tagmodifier.ParsleyMaxTagModifier;
+import codetroopers.wicket.web.parsley.tagmodifier.ParsleyMinTagModifier;
+import codetroopers.wicket.web.parsley.tagmodifier.ParsleyNotNullTagModifier;
+import codetroopers.wicket.web.parsley.tagmodifier.ParsleyPatternTagModifier;
+import codetroopers.wicket.web.parsley.tagmodifier.ParsleySizeTagModifier;
 import org.apache.wicket.Application;
 import org.apache.wicket.MetaDataKey;
 import org.apache.wicket.bean.validation.BeanValidationConfiguration;
@@ -10,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.lang.annotation.Annotation;
 
@@ -54,6 +60,7 @@ public class Parsley {
         configuration.register(Min.class, new ParsleyMinTagModifier());
         configuration.register(Max.class, new ParsleyMaxTagModifier());
         configuration.register(NotNull.class, new ParsleyNotNullTagModifier());
+        configuration.register(Pattern.class, new ParsleyPatternTagModifier());
         if (HV_EMAIL_CONSTRAINT != null) {
             //this is only added if hibernate validator is in the classpath
             configuration.register(HV_EMAIL_CONSTRAINT, new ParsleyEmailTagModifier());
