@@ -129,5 +129,35 @@ public class ParsleyFormBehaviorTest {
         Assert.assertEquals("[a-zA-Z]", tagTF3.getAttribute("data-regexp"));
     }
 
+    @Test
+    public void testNotLocalizedCustomErrorMessage(){
+        Parsley.register(wicketTester.getApplication());
+        wicketTester.startPage(new ResolvablePropertiesPage(){
+            @Override
+            protected IModel<Long> newTF3Model(TestBean testBean) {
+                return new PropertyModel(testBean, "notLocalizedCustomMessageAttr");
+            }
+        });
+        wicketTester.assertRenderedPage(ResolvablePropertiesPage.class);
+        final TagTester tagTF3 = wicketTester.getTagByWicketId("tf3");
+        Assert.assertTrue(tagTF3.hasAttribute("data-max-message"));
+        Assert.assertEquals("customMessage", tagTF3.getAttribute("data-max-message"));
+    }
+
+    @Test
+    public void testLocalizedCustomErrorMessage(){
+        Parsley.register(wicketTester.getApplication());
+        wicketTester.startPage(new ResolvablePropertiesPage(){
+            @Override
+            protected IModel<Long> newTF3Model(TestBean testBean) {
+                return new PropertyModel(testBean, "customMessageAttr");
+            }
+        });
+        wicketTester.assertRenderedPage(ResolvablePropertiesPage.class);
+        final TagTester tagTF3 = wicketTester.getTagByWicketId("tf3");
+        Assert.assertTrue(tagTF3.hasAttribute("data-max-message"));
+        Assert.assertEquals("Localized custom message", tagTF3.getAttribute("data-max-message"));
+    }
+
 
 }

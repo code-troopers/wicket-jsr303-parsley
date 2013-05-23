@@ -8,27 +8,29 @@ package codetroopers.wicket.web.parsley.validator;
  */
 public class ParsleyNumberValueValidationBehaviors {
     public static class ParsleyMinValueValidationBehavior extends ParsleyValidationBehavior {
-        public ParsleyMinValueValidationBehavior(final long minValue) {
-            this(minValue, "change");
+        public ParsleyMinValueValidationBehavior(final long minValue, final String errorMessage) {
+            this(minValue, errorMessage, "change");
         }
 
-        public ParsleyMinValueValidationBehavior(final long minValue, final String... trigger) {
+        public ParsleyMinValueValidationBehavior(final long minValue, final String errorMessage, final String... trigger) {
             final long value = minValue;
             if (value > 0) {
                 on(trigger);
                 constraint("min", value);
+                error("min",errorMessage);
             }
         }
     }
 
     public static class ParsleyMaxValueValidationBehavior extends ParsleyValidationBehavior {
-        public ParsleyMaxValueValidationBehavior(long maxValue) {
-            this(maxValue, "change");
+        public ParsleyMaxValueValidationBehavior(long maxValue, final String errorMessage) {
+            this(maxValue, errorMessage, "change");
         }
 
-        public ParsleyMaxValueValidationBehavior(long maxValue, final String... trigger) {
+        public ParsleyMaxValueValidationBehavior(long maxValue, final String errorMessage,  final String... trigger) {
             on(trigger);
             constraint("max", maxValue);
+            error("max",errorMessage);
         }
     }
 

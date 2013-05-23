@@ -8,6 +8,7 @@ import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
+import org.apache.wicket.model.ResourceModel;
 
 /**
  * User: cgatay
@@ -26,7 +27,7 @@ public class ResolvablePropertiesPage extends WebPage {
         final TestBean testBean = new TestBean();
         form.add(new TextField("tf1", new PropertyModel(testBean, "attr1")));
         form.add(new TextField("tf2", new PropertyModel(testBean, "attr2")));
-        form.add(new TextField("tf3", newTF3Model(testBean)));
+        form.add(new TextField("tf3", newTF3Model(testBean)).setLabel(new ResourceModel("label")));
 
         form.add(new ParsleyFormBehavior());
         add(form);

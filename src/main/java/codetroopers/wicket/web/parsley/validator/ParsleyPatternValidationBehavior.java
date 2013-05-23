@@ -7,13 +7,14 @@ package codetroopers.wicket.web.parsley.validator;
  * @author bcousin
  */
 public class ParsleyPatternValidationBehavior extends ParsleyValidationBehavior {
-    public ParsleyPatternValidationBehavior(final String pattern) {
-        this(pattern, "change");
+    public ParsleyPatternValidationBehavior(final String pattern, final String errorMessage) {
+        this(pattern, errorMessage, "change");
 
     }
 
-    public ParsleyPatternValidationBehavior(final String pattern, final String... trigger) {
+    public ParsleyPatternValidationBehavior(final String pattern, final String errorMessage, final String... trigger) {
         on(trigger);
         constraint("regexp", pattern);
+        error("regexp",errorMessage);
     }
 }

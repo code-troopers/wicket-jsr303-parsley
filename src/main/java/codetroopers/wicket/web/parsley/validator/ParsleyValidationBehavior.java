@@ -65,6 +65,12 @@ public class ParsleyValidationBehavior<T> extends Behavior implements IValidator
     private ConstraintBag constraint;
 
     /**
+     * Custom error message key-value data, key is the constraint name and value is the custom error message :
+     * data-${key}-message = ${value}
+     */
+    private ConstraintBag error;
+
+    /**
      * A constructor that uses a no-op server side validator
      */
     public ParsleyValidationBehavior() {
@@ -140,6 +146,17 @@ public class ParsleyValidationBehavior<T> extends Behavior implements IValidator
     }
 
     /**
+     * Sets the custom error message
+     * @param constraintName data-${constraintName}-message
+     * @param error already localized error message
+     * @return <code>this</code> for chaining
+     */
+    public ParsleyValidationBehavior<T> error(final String constraintName, final String error) {
+        this.error = new ConstraintBag(constraintName, error);
+        return this;
+    }
+
+    /**
      * Adds JavaScript events on which Parsley will trigger client-side validation
      *
      * @param events
@@ -200,6 +217,10 @@ public class ParsleyValidationBehavior<T> extends Behavior implements IValidator
         if (constraint != null) {
             tag.put("data-" + constraint.suffix, constraint.value.toString());
         }
+
+        if (error != null) {
+            tag.put("data-" + error.suffix + "-message", error.value.toString());
+        }
     }
 
     /**
@@ -215,7 +236,8 @@ public class ParsleyValidationBehavior<T> extends Behavior implements IValidator
             host = (FormComponent) component;
         } else {
             throw new IllegalArgumentException(String.format("%s doesn't support components of type '%s'",
-                    Classes.name(getClass()), Classes.name(component.getClass())));
+                                                             Classes.name(getClass()),
+                                                             Classes.name(component.getClass())));
         }
     }
 

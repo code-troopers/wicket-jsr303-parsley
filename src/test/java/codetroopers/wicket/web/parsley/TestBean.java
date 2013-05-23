@@ -32,6 +32,12 @@ public class TestBean {
     @Pattern(regexp = "[a-zA-Z]")
     private String patternAttr;
 
+    @Max(value = 5, message = "customMessage")
+    private String notLocalizedCustomMessageAttr;
+
+    @Max(value = 5, message = "{customMessage}")
+    private String customMessageAttr;
+
     public String getAttr1() {
         return attr1;
     }
